@@ -11,7 +11,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     private bool isGrounded;
     public Transform groundCheck;
+    Animator anim;
 
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        anim.speed =1;  
+    }
     void Start()
     {
         
