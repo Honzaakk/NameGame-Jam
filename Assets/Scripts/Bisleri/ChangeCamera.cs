@@ -6,6 +6,8 @@ public class ChangeCamera : MonoBehaviour
     [Header("Camera References")]
     [SerializeField] private CinemachineCamera camera1;
     [SerializeField] private CinemachineCamera camera2;
+    
+    [SerializeField] private GameObject spawnerObject;
 
     [Header("Priority Settings")]
     [SerializeField] private int highPriority = 10;
@@ -44,6 +46,10 @@ public class ChangeCamera : MonoBehaviour
         }
 
         isCamera1Active = !isCamera1Active;
+        if (spawnerObject.TryGetComponent<ObstaclesSpawner>(out var spawner))
+        {
+            spawner.StartSpawn();
+        }
     }
 
     // Optional: Switch to a specific camera
